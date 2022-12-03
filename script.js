@@ -35,7 +35,7 @@ function restartGame(){
     document.getElementById('table').style.opacity = 1;
     document.getElementById('gameoverPic').classList.add('d-none');
     document.getElementById('restartBtn').classList.add('d-none');
-    for(i = 1; i < 8; i++){
+    for(i = 1; i < 9; i++){
         document.getElementById('line-' + i).style.transform = 'scaleX(0)';
     }
     for(i = 0; i < 9; i++){
