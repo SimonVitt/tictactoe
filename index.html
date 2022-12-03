@@ -5,12 +5,84 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>TicTacToe</title>
+    <link rel="icon" type="image" href="img/cross-icon.png">
     <script src="script.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+
+    <div class="playerPanel">
+        <div id="player-1">
+            <img src="img/circle-line-icon.png"> Player 1
+        </div>
+        <div id="player-2" class="playerInactive">
+            <img src="img/cross-icon.png"> Player 2
+        </div>
+    </div>
+
+    <div class="containerField">
+        <table id="table">
+            <tr>
+                <td onclick="fillShape(0)" id="0">
+                    <img id="circle-0" class="shape d-none" src="img/circle-line-icon.png">
+                    <img id="cross-0" class="shape d-none" src="img/cross-icon.png">
+                </td>
+                <td onclick="fillShape(1)" id="1">
+                    <img id="circle-1" class="shape d-none" src="img/circle-line-icon.png">
+                    <img id="cross-1" class="shape d-none" src="img/cross-icon.png">
+                </td>
+                <td onclick="fillShape(2)" id="2">
+                    <img id="circle-2" class="shape d-none" src="img/circle-line-icon.png">
+                    <img id="cross-2" class="shape d-none" src="img/cross-icon.png">
+                </td>
+            </tr>
+            <tr>
+                <td onclick="fillShape(3)" id="3">
+                    <img id="circle-3" class="shape d-none" src="img/circle-line-icon.png">
+                    <img id="cross-3" class="shape d-none" src="img/cross-icon.png">
+                </td>
+                <td onclick="fillShape(4)" id="4">
+                    <img id="circle-4" class="shape d-none" src="img/circle-line-icon.png">
+                    <img id="cross-4" class="shape d-none" src="img/cross-icon.png">
+                </td>
+                <td onclick="fillShape(5)" id="5">
+                    <img id="circle-5" class="shape d-none" src="img/circle-line-icon.png">
+                    <img id="cross-5" class="shape d-none" src="img/cross-icon.png">
+                </td>
+            </tr>
+            <tr>
+                <td onclick="fillShape(6)" id="6">
+                    <img id="circle-6" class="shape d-none" src="img/circle-line-icon.png">
+                    <img id="cross-6" class="shape d-none" src="img/cross-icon.png">
+                </td>
+                <td onclick="fillShape(7)" id="7">
+                    <img id="circle-7" class="shape d-none" src="img/circle-line-icon.png">
+                    <img id="cross-7" class="shape d-none" src="img/cross-icon.png">
+                </td>
+                <td onclick="fillShape(8)" id="8">
+                    <img id="circle-8" class="shape d-none" src="img/circle-line-icon.png">
+                    <img id="cross-8" class="shape d-none" src="img/cross-icon.png">
+                </td>
+            </tr>
+        </table>
+        <div id="line-1" class="line line1" ></div>
+        <div id="line-2" class="line line2"></div>
+        <div id="line-3" class="line line3"></div>
+        <div id="line-4" class="line vertical line4">
+        </div>
+        <div id="line-5" class="line vertical line5">
+        </div>
+        <div id="line-6" class="line vertical line6">
+        </div>
+        <div id="line-7" class="line spin-45deg"></div>
+        <div id="line-8" class="line spin45deg"></div>
+
+        <img class="gameoverPic d-none" id="gameoverPic" src="img/game-over-2720584_1280.png"> 
+    </div>
+    <button id="restartBtn" class="restartBtn d-none" onclick="restartGame()">Restart</button>
+
 
 </body>
 
