@@ -2,6 +2,7 @@ let fields = [];
 
 let currentShape = 'cross';
 let gameOver = false;
+let winner;
 
 function fillShape (id){
     if(!fields[id] && !gameOver){
@@ -35,14 +36,18 @@ function restartGame(){
     document.getElementById('table').style.opacity = 1;
     document.getElementById('gameoverPic').classList.add('d-none');
     document.getElementById('restartBtn').classList.add('d-none');
-    for(i = 1; i < 9; i++){
+    for(let i = 1; i < 4; i++){
         document.getElementById('line-' + i).style.transform = 'scaleX(0)';
     }
+    for(let i = 4; i < 7; i++){
+        document.getElementById('line-' + i).style.transform = 'rotate(90deg) scaleX(0)';
+    }
+    document.getElementById('line-7').style.transform = 'rotate(-45deg) scaleX(0)';
+    document.getElementById('line-8').style.transform = 'rotate(45deg) scaleX(0)';
     for(i = 0; i < 9; i++){
         document.getElementById('cross-' + i).classList.add('d-none');
         document.getElementById('circle-' + i).classList.add('d-none');
     }
-
 }
 
 function checkForDraw(){
@@ -58,7 +63,12 @@ function checkForDraw(){
 }
 
 function checkForWin(){
-    let winner;
+    checkHorizontal();
+    checkVertical();
+    checkVerticalHorizontal();
+}
+
+function checkHorizontal(){
     if(fields[0] == fields[1] && fields[1] == fields[2] && fields[0]){
         winner = fields[0];
         console.log('dejknac');
@@ -72,6 +82,12 @@ function checkForWin(){
         winner = fields[6];
         document.getElementById('line-3').style.transform = 'scaleX(1)';
     }
+    if(winner){
+        endGame();
+    }
+}
+
+function checkVertical(){
     if(fields[0] == fields[3] && fields[3] == fields[6] && fields[0]){
         winner = fields[0];
         document.getElementById('line-4').style.transform = 'rotate(90deg) scaleX(1)';
@@ -84,6 +100,12 @@ function checkForWin(){
         winner = fields[2];
         document.getElementById('line-6').style.transform = 'rotate(90deg) scaleX(1)';
     }
+    if(winner){
+        endGame();
+    }
+}
+
+function checkVerticalHorizontal(){
     if(fields[0] == fields[4] && fields[4] == fields[8] && fields[0]){
         winner = fields[0];
         document.getElementById('line-7').style.transform = 'rotate(45deg) scaleX(1)';
@@ -99,6 +121,7 @@ function checkForWin(){
 
 function endGame(){
     gameOver =true;
+    winner = null;
     setTimeout(function(){
         document.getElementById('gameoverPic').classList.remove('d-none');
         document.getElementById('restartBtn').classList.remove('d-none');
